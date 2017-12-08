@@ -1,0 +1,19 @@
+%press {
+  transition: 50ms;
+  &:active {
+    transform: scale(.95);
+    transform-origin: 50% 50%;
+  }
+}
+
+@mixin placeholder {
+  @each $prefix in (
+    "::-webkit-input-placeholder",
+    "::-moz-placeholder",
+    ":-ms-input-placeholder",
+    ":-moz-placeholder") {
+    &#{$prefix} {
+      @content;
+    }
+  }
+}
