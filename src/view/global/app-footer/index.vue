@@ -45,10 +45,6 @@
   @import "../../../stylesheet/config/variables";
 
   .AppFooter {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
