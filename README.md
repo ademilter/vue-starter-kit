@@ -1,6 +1,10 @@
-# mc
+# Vue Starter Kit
 
-> A Vue.js project
+- :speech_balloon: multi-language support 
+- :warning: form validations ready (https://github.com/baianat/vee-validate)
+- :scissors: input mask (https://github.com/vuejs-tips/vue-the-mask)
+- :truck: state management with vuex
+- :link: router management
 
 ## Build Setup
 
@@ -17,5 +21,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
