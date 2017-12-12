@@ -4,29 +4,41 @@ import HTTP from '@/utils/http'
 export default {
   namespaced: true,
   state: {
-    asd: {}
+    notes: []
   },
   getters: {
-    asd: state => state.asd
+    notes: state => state.notes
   },
   actions: {
-    async test ({commit, dispatch}, payload) {
+    async getNotes ({commit}) {
       try {
-        const RES = await HTTP.post('test', {
-          params: payload
-        })
-        Print('OK-test', RES)
-        commit('TEST', RES.data)
+        const RES = await HTTP.get('contact')
+        Print('OK-getNotes', RES)
+        commit('GET_NOTES', RES.data)
         return RES
       } catch (err) {
-        Print('ERROR-test', err, false)
+        Print('ERROR-getNotes', err, false)
+        throw Error(err)
+      }
+    },
+    async sendMessage ({commit}, newMessage) {
+      try {
+        const RES = await HTTP.post('contact', newMessage)
+        Print('OK-sendMessage', RES)
+        commit('SEND_MESSAGE', RES.data)
+        return RES
+      } catch (err) {
+        Print('ERROR-sendMessage', err, false)
         throw Error(err)
       }
     }
   },
   mutations: {
-    TEST (state, data) {
-      state.asd = data
+    GET_NOTES (state, data) {
+      state.notes = data
+    },
+    SEND_MESSAGE (state, data) {
+      state.notes.unshift(data)
     }
   }
 }

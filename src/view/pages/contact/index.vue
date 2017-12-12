@@ -40,9 +40,16 @@
       div.Form-item
         button.btn(type="submit") Gönder
 
+    .Notes
+      .Item(v-for="note in notes")
+        .email {{ note.email }}
+        .message {{ note.message }}
+
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
     name: 'Home',
     data () {
@@ -51,14 +58,32 @@
         message: ''
       }
     },
+    created () {
+      this.getNotes()
+    },
+    computed: {
+      ...mapGetters('Contact', [
+        'notes'
+      ]),
+      newMessage () {
+        return {
+          email: this.email,
+          message: this.message
+        }
+      }
+    },
     methods: {
+      ...mapActions('Contact', [
+        'getNotes',
+        'sendMessage'
+      ]),
       submitForm (e) {
         this.$validator.validateAll().then((result) => {
           // hata varsa kızıyoruz
           if (!result) return
 
           // hata yoksa ajax post!
-          console.log('her şey oke!')
+          this.sendMessage(this.newMessage)
         })
       }
     }
@@ -75,5 +100,20 @@
   .Form {
     margin-top: 30px;
     max-width: 500px;
+  }
+
+  .Notes {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .Item {
+      border: 1px solid #ddd;
+      padding: 20px;
+      min-width: 300px;
+      margin-right: 20px;
+      width: 20%;
+      margin-bottom: 20px;
+    }
   }
 </style>
