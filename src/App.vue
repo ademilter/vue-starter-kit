@@ -1,20 +1,24 @@
 <template lang="pug">
   .App
-    HeaderView
-    router-view
-    FooterView
+    AppHeader
+    AppNavigation
+    main.AppContent
+      router-view
+    AppFooter
 </template>
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import HeaderView from '@/view/global/header'
-  import FooterView from '@/view/global/footer'
+  import AppHeader from '@/view/global/app-header'
+  import AppNavigation from '@/view/global/app-navigation'
+  import AppFooter from '@/view/global/app-footer'
 
   export default {
     name: 'App',
     components: {
-      HeaderView,
-      FooterView
+      AppHeader,
+      AppNavigation,
+      AppFooter
     },
     computed: {
       ...mapGetters('i18n', [

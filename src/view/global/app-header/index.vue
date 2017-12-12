@@ -1,17 +1,29 @@
+<i18n>
+  {
+  "en": {
+  "title": "Example Application"
+  },
+  "tr": {
+  "title": "Örnek Uygulama"
+  }
+  }
+</i18n>
+
 <template lang="pug">
-  .Header CISTAKA CISTAK
+  .AppHeader
+    h4 {{ $t('title') }}
 </template>
 
 <script>
   export default {
-    name: 'Header'
+    name: 'AppHeader'
   }
 </script>
 
 <style lang="scss" scoped>
   @import "../../../stylesheet/config/variables";
 
-  .Header {
+  .AppHeader {
     height: 60px;
     display: flex;
     align-items: center;

@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import authMiddleware from './auth'
 
 // Pages
 import Home from '@/view/pages/home'
+import About from '@/view/pages/about'
+import Contact from '@/view/pages/contact'
 
 Vue.use(Router)
 
@@ -12,11 +13,28 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        main_menu: true
+      }
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About,
+      meta: {
+        main_menu: true
+      }
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact,
+      meta: {
+        main_menu: true
+      }
     }
   ]
 })
-
-router.beforeEach(authMiddleware)
 
 export default router

@@ -1,24 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
-import { createVuexLoader } from 'vuex-loading'
 
 // Global
 import i18n from '@/i18n/store'
 
 // Pages
-import Auth from '@/view/pages/home/store'
-
-// Component
-// import Discount from '@/view/components/Discount/store'
-
-const VuexLoading = createVuexLoader({
-  moduleName: 'loader',
-  componentName: 'v-loading'
-})
+import Home from '@/view/pages/home/store'
+import About from '@/view/pages/about/store'
+import Contact from '@/view/pages/contact/store'
 
 Vue.use(Vuex)
-Vue.use(VuexLoading)
 
 const debug = process.env.NODE_ENV !== 'production'
 
@@ -27,12 +19,14 @@ export default new Vuex.Store({
     // Globals
     i18n,
     // Pages
-    Auth
-    // Component
+    Home,
+    About,
+    Contact
   },
   strict: debug,
   plugins: [
-    VuexLoading.Store,
-    createPersistedState()
+    createPersistedState({
+      key: `${process.env.PROJECT_NAMESPACE}Store`
+    })
   ]
 })

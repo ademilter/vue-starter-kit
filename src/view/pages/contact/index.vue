@@ -1,10 +1,10 @@
 <i18n>
   {
   "en": {
-  "title": "Welcome!"
+  "title": "Contact"
   },
   "tr": {
-  "title": "Hoş geldin!"
+  "title": "İletişim"
   }
   }
 </i18n>

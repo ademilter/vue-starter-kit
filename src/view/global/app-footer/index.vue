@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Footer
+  .AppFooter
     select(v-model="siteLang")
       option(v-for="(lang, index) in langSupport",
       :val="lang",
@@ -10,7 +10,7 @@
   import { mapActions, mapGetters } from 'vuex'
 
   export default {
-    name: 'Footer',
+    name: 'AppFooter',
     data () {
       return {
         siteLang: ''
@@ -44,10 +44,15 @@
 <style lang="scss" scoped>
   @import "../../../stylesheet/config/variables";
 
-  .Footer {
+  .AppFooter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #eee;
   }
 </style>

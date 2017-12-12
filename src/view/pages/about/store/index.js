@@ -10,7 +10,7 @@ export default {
     asd: state => state.asd
   },
   actions: {
-    async test ({commit, dispatch}, payload) {
+    async test ({commit}, payload) {
       try {
         const RES = await HTTP.post('test', {
           params: payload
