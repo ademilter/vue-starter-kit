@@ -35,7 +35,7 @@ export default {
   },
   mutations: {
     GET_NOTES (state, data) {
-      state.notes = data
+      state.notes = data.reverse()
     },
     SEND_MESSAGE (state, data) {
       state.notes.unshift(data)

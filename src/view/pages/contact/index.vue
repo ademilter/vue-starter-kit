@@ -77,12 +77,9 @@
         'getNotes',
         'sendMessage'
       ]),
-      submitForm (e) {
+      submitForm () {
         this.$validator.validateAll().then((result) => {
-          // hata varsa kızıyoruz
           if (!result) return
-
-          // hata yoksa ajax post!
           this.sendMessage(this.newMessage)
         })
       }
