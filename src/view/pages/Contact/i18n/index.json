@@ -1,0 +1,14 @@
+{
+  "en": {
+    "title": "Contact",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
+  },
+  "tr": {
+    "title": "İletişim",
+    "email": "Eposta",
+    "message": "Mesaj",
+    "send": "Gönder"
+  }
+}

@@ -1,44 +1,49 @@
-import { Print } from '@/utils/helper'
 import HTTP from '@/utils/http'
+import Messages from '../model'
+import { startLoading, endLoading } from '@/utils/loader'
+
+console.log(new Messages())
 
 export default {
   namespaced: true,
   state: {
-    notes: []
+    messages: new Messages()
   },
   getters: {
-    notes: state => state.notes
+    messages: state => state.messages.list
   },
   actions: {
-    async getNotes ({commit}) {
+    async getMessages ({ commit, dispatch }) {
       try {
+        startLoading(dispatch, 'loading messages')
         const RES = await HTTP.get('contact')
-        Print('OK-getNotes', RES)
-        commit('GET_NOTES', RES.data)
+        commit('GET_MESSAGES', RES.data)
         return RES
       } catch (err) {
-        Print('ERROR-getNotes', err, false)
         throw Error(err)
+      } finally {
+        endLoading(dispatch, 'loading messages')
       }
     },
-    async sendMessage ({commit}, newMessage) {
+    async sendMessage ({ commit, dispatch }, newMessage) {
       try {
+        startLoading(dispatch, 'sending message')
         const RES = await HTTP.post('contact', newMessage)
-        Print('OK-sendMessage', RES)
         commit('SEND_MESSAGE', RES.data)
         return RES
       } catch (err) {
-        Print('ERROR-sendMessage', err, false)
         throw Error(err)
+      } finally {
+        endLoading(dispatch, 'sending message')
       }
     }
   },
   mutations: {
-    GET_NOTES (state, data) {
-      state.notes = data.reverse()
+    GET_MESSAGES (state, data) {
+      state.messages.addMessages(data)
     },
     SEND_MESSAGE (state, data) {
-      state.notes.unshift(data)
+      state.messages.addMessage(data)
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "mc",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Vue.js project",
   "author": "Adem ilter <ademilter@gmail.com>",
   "private": true,
@@ -13,14 +13,15 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "lodash": "^4.17.4",
-    "vee-validate": "^2.0.0-rc.25",
-    "vue": "^2.5.2",
-    "vue-i18n": "^7.3.2",
+    "lodash": "^4.17.5",
+    "moment": "^2.20.1",
+    "vee-validate": "^2.0.3",
+    "vue": "^2.5.13",
+    "vue-i18n": "^7.4.2",
     "vue-router": "^3.0.1",
     "vue-the-mask": "^0.11.1",
     "vuex": "^3.0.1",
-    "vuex-persistedstate": "^2.4.2"
+    "vuex-loading": "^0.2.5"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.2.1",
@@ -68,7 +69,7 @@
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
-    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-bundle-analyzer": "^2.10.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.1"
   },

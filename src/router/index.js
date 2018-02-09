@@ -2,38 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Pages
-import Home from '@/view/pages/home'
-import About from '@/view/pages/about'
-import Contact from '@/view/pages/contact'
+import Home from '@/view/pages/Home/route'
+import About from '@/view/pages/About/route'
+import Contact from '@/view/pages/Contact/route'
 
 Vue.use(Router)
 
 const router = new Router({
   routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home,
-      meta: {
-        main_menu: true
-      }
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About,
-      meta: {
-        main_menu: true
-      }
-    },
-    {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact,
-      meta: {
-        main_menu: true
-      }
-    }
+    Home,
+    About,
+    Contact
   ]
 })
 

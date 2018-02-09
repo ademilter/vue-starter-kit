@@ -1,13 +1,4 @@
-<i18n>
-  {
-  "en": {
-  "title": "Welcome!"
-  },
-  "tr": {
-  "title": "Hoş geldin!"
-  }
-  }
-</i18n>
+<i18n src="./i18n/index.json"></i18n>
 
 <template lang="pug">
   .Home

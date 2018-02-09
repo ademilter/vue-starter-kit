@@ -1,13 +1,4 @@
-<i18n>
-  {
-  "en": {
-  "title": "Contact"
-  },
-  "tr": {
-  "title": "İletişim"
-  }
-  }
-</i18n>
+<i18n src="./i18n/index.json"></i18n>
 
 <template lang="pug">
   .Home
@@ -16,71 +7,75 @@
     form.Form(@submit.prevent="submitForm")
 
       div.Form-item
-        label.Form-item-label Eposta
+        label.Form-item-label {{ $t('email') }}
         .control
-          input.txt(name="email",
+          input.txt(
+          name="email",
           data-vv-as="Eposta",
-          v-model="email",
+          v-model="form.email",
           v-validate="'required|email'",
           :class="{ 'is-danger': errors.has('email') }",
           type="email")
-        p.Form-item-help.is-danger(v-show="errors.has('email')") {{ errors.first('email') }}
+        p.Form-item-help.is-danger(
+        v-show="errors.has('email')"
+        ) {{ errors.first('email') }}
 
       div.Form-item
-        label.Form-item-label Mesaj
+        label.Form-item-label {{ $t('message') }}
         .control
-          textarea.txt(rows="3",
+          textarea.txt(
+          rows="3",
           name="message",
           data-vv-as="Mesaj",
-          v-model="message",
+          v-model="form.message",
           v-validate="'required'",
           :class="{ 'is-danger': errors.has('message') }")
-        p.Form-item-help.is-danger(v-show="errors.has('message')") {{ errors.first('message') }}
+        p.Form-item-help.is-danger(
+        v-show="errors.has('message')"
+        ) {{ errors.first('message') }}
 
       div.Form-item
-        button.btn(type="submit") Gönder
+        button.btn(
+        type="submit",
+        :disabled="$loading.isLoading('sending message')"
+        ) {{ $t('send') }}
 
     .Notes
-      .Item(v-for="note in notes")
-        .email {{ note.email }}
-        .message {{ note.message }}
+      template(v-if="$loading.isLoading('loading messages')")
+        h5 Loading...
+      template(v-else)
+        .Item(v-for="message in messages")
+          .email {{ message.email }}
+          .message {{ message.message }}
 
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'Home',
     data () {
       return {
-        email: '',
-        message: ''
-      }
-    },
-    created () {
-      this.getNotes()
-    },
-    computed: {
-      ...mapGetters('Contact', [
-        'notes'
-      ]),
-      newMessage () {
-        return {
-          email: this.email,
-          message: this.message
+        form: {
+          email: '',
+          message: ''
         }
       }
     },
+    created () {
+      this.$store.dispatch('Contact/getMessages')
+    },
+    computed: {
+      ...mapGetters('Contact', [
+        'messages'
+      ])
+    },
     methods: {
-      ...mapActions('Contact', [
-        'getNotes',
-        'sendMessage'
-      ]),
       submitForm () {
         this.$validator.validateAll().then((result) => {
           if (!result) return
-          this.sendMessage(this.newMessage)
+          this.$store.dispatch('Contact/sendMessage', this.form)
         })
       }
     }

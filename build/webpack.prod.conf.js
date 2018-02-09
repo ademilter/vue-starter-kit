@@ -53,9 +53,9 @@ const webpackConfig = merge(baseWebpackConfig, {
       cssProcessorOptions: config.build.productionSourceMap
         ? {
           safe: true,
-          map: { inline: false }
+          map: {inline: false}
         }
-        : { safe: true }
+        : {safe: true}
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
@@ -139,7 +139,10 @@ if (config.build.productionGzip) {
 
 if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin({
+    analyzerHost: 'localhost',
+    analyzerPort: '1453'
+  }))
 }
 
 module.exports = webpackConfig
