@@ -1,4 +1,4 @@
-import Contact from '../'
+import Contact from '../index'
 
 export default {
   path: '/contact',

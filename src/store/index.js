@@ -5,9 +5,9 @@ import Vuex from 'vuex'
 import i18n from '@/i18n/store'
 
 // Pages
-import Home from '@/view/pages/Home/store'
-import About from '@/view/pages/About/store'
-import Contact from '@/view/pages/Contact/store'
+import Home from '@/view/pages/Home/store/index'
+import About from '@/view/pages/About/store/index'
+import Contact from '@/view/pages/Contact/store/index'
 
 Vue.use(Vuex)
 

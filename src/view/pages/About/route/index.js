@@ -1,4 +1,4 @@
-import About from '../'
+import About from '../index'
 
 export default {
   path: '/about',
