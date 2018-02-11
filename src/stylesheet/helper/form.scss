@@ -1,0 +1,122 @@
+.btn, .text {
+  font-family: inherit;
+  font-weight: $font-weight-bold;
+  line-height: normal;
+}
+
+.btn {
+  user-select: none;
+  height: $finger-size;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  background-color: $color-primary;
+  border-radius: $border-radius;
+
+  &:disabled,
+  &-disabled {
+    cursor: not-allowed !important;
+    background-color: #e6e6e6 !important;
+    color: darken(#e6e6e6, 30%) !important;
+    border-color: #e6e6e6 !important;
+  }
+
+  &-full {
+    display: flex;
+    width: 100%;
+  }
+
+  &-blue {
+    color: white;
+    background-color: $color-success;
+  }
+
+  &-light {
+    color: $color-light;
+    background-color: #eaeaeb;
+  }
+
+  &-ilginc {
+    color: $color-success;
+    background-color: #fff1e8;
+  }
+
+  &-ghost {
+    color: $color-warning;
+    border: 1px solid;
+    background-color: white;
+
+    &:active, &:focus {
+      background-color: $color-warning;
+      color: #FFF;
+      border-color: $color-warning;
+    }
+  }
+
+  &-icon {
+    width: $finger-size;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+  }
+
+  .icon-left {
+    margin-right: 10px;
+  }
+
+  .icon-right {
+    margin-left: 10px;
+  }
+
+}
+
+.txt {
+  display: block;
+  width: 100%;
+  min-height: $finger-size;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: $color-text-dark;
+  border: solid 1px #ccc;
+  background-color: white;
+  border-radius: $border-radius;
+
+  &:focus {
+    border-color: rgba($color-warning, .4);
+  }
+
+  &.is-danger {
+    border-color: $color-warning;
+    background-color: rgba($color-warning, .05);
+  }
+}
+
+.Form {
+
+  &-item {
+
+    & + & {
+      margin-top: 20px;
+    }
+
+    &-label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .control {
+
+    }
+
+    &-help {
+      margin-top: 10px;
+      font-size: $font-size-small;
+      color: $color-warning;
+    }
+  }
+}

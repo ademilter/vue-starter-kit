@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    Europe/Istanbul
+  node:
+    version: 8.9.4
+database:
+  override:
+    - echo "Skipping DB."
+dependencies:
+  post:
+    - npm run build
+deployment:
+  production:
+    branch: master
+    commands:
+      - surge --project ./dist/ --domain vue-starter-kit.surge.sh
