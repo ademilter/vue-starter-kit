@@ -38,6 +38,6 @@ export class Message {
   }
 
   get humanTime () {
-    return moment(this.createdAt)
+    return moment.unix(this.createdAt).fromNow()
   }
 }

@@ -47,14 +47,15 @@
         .Item(v-for="message in messages")
           .email {{ message.email }}
           .message {{ message.message }}
+          .date {{ message.humanTime }}
 
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import {mapGetters} from 'vuex'
 
   export default {
-    name: 'Home',
+    name: 'Contact',
     data () {
       return {
         form: {
