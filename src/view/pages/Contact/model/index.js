@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _findIndex from 'lodash/findIndex'
 import moment from 'moment'
 
 export default class Messages {
@@ -25,7 +25,7 @@ export default class Messages {
   }
 
   findIndex (Id) {
-    return _.findIndex(this.list, ['id', Id])
+    return _findIndex(this.list, ['id', Id])
   }
 }
 
