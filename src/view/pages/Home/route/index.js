@@ -1,4 +1,4 @@
-import Home from '../index'
+import Home from '../'
 
 export default {
   path: '/',

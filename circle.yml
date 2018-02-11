@@ -2,7 +2,7 @@ machine:
   timezone:
     Europe/Istanbul
   node:
-    version: 7.8.0
+    version: 8.9.4
 database:
   override:
     - echo "Skipping DB."
