@@ -1,4 +1,4 @@
-import Contact from '../index'
+import Contact from '../index.vue'
 
 export default {
   path: '/contact',
