@@ -21,8 +21,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../stylesheet/config/variables";
-
   .AppHeader {
     height: 60px;
     display: flex;

@@ -44,15 +44,17 @@
       template(v-if="$loading.isLoading('loading messages')")
         h5 Loading...
       template(v-else)
-        .Item(v-for="message in messages")
-          .email {{ message.email }}
-          .message {{ message.message }}
-          .date {{ message.humanTime }}
+        .Item(
+        v-for="message in messages",
+        :key="message.id")
+          p.email {{ message.email }}
+          p.message {{ message.message }}
+          time.date {{ message.humanTime }}
 
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'Contact',
@@ -83,9 +85,7 @@
   }
 </script>
 
-<style lang="scss">
-  @import "../../../stylesheet/config/variables";
-
+<style lang="scss" scoped>
   .Home {
     padding: 50px;
   }

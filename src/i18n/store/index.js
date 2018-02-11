@@ -14,11 +14,7 @@ export default {
     },
     langSupport: state => state.langSupport
   },
-  actions: {
-    langChange: ({ commit }, payload) => {
-      commit('LANG_CHANGE', payload)
-    }
-  },
+  actions: {},
   mutations: {
     LANG_CHANGE (state, { lang, app }) {
       state.langDefault = lang

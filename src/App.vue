@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex'
   import AppHeader from '@/view/global/app-header'
   import AppNavigation from '@/view/global/app-navigation'
   import AppFooter from '@/view/global/app-footer'
@@ -25,16 +25,12 @@
         'langDefault'
       ])
     },
-    methods: {
-      ...mapActions('i18n', [
-        'langChange'
-      ])
-    },
     mounted () {
-      this.langChange({
+      const payload = {
         lang: this.langDefault,
         app: this
-      })
+      }
+      this.$store.commit('i18n/LANG_CHANGE', payload, { root: true })
     }
   }
 </script>

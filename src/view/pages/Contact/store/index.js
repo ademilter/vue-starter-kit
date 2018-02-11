@@ -2,8 +2,6 @@ import HTTP from '@/utils/http'
 import Messages from '../model'
 import { startLoading, endLoading } from '@/utils/loader'
 
-console.log(new Messages())
-
 export default {
   namespaced: true,
   state: {

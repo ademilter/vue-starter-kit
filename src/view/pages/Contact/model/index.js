@@ -8,7 +8,6 @@ export default class Messages {
 
   addMessages (messages) {
     this.list = []
-    console.log(messages)
     messages.forEach(message => this.addMessage(message))
   }
 

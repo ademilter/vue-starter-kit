@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'AppFooter',
@@ -21,10 +21,11 @@
     },
     watch: {
       siteLang () {
-        this.langChange({
+        const payload = {
           lang: this.siteLang,
           app: this
-        })
+        }
+        this.$store.commit('i18n/LANG_CHANGE', payload, { root: true })
       }
     },
     computed: {
@@ -32,18 +33,11 @@
         'langDefault',
         'langSupport'
       ])
-    },
-    methods: {
-      ...mapActions('i18n', [
-        'langChange'
-      ])
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../stylesheet/config/variables";
-
   .AppFooter {
     height: 60px;
     display: flex;

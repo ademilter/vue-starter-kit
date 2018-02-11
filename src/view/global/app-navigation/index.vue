@@ -42,8 +42,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../stylesheet/config/variables";
-
   .AppNavigation {
     height: 60px;
     display: flex;

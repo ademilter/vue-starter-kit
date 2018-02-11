@@ -13,8 +13,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../stylesheet/config/variables";
-
   .Home {
     padding: 50px;
   }
