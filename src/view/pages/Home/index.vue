@@ -15,5 +15,6 @@
 <style lang="scss">
   .Home {
     padding: 50px;
+    color: $color-primary;
   }
 </style>
